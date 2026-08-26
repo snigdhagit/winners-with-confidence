@@ -53,7 +53,7 @@ The randomization level is generally set to $\varepsilon = \log \binom{M}{k}.$
 
 ## Installation
 
-The supplied notebook metadata uses Python 3.12.2. Create a virtual environment and install the required scientific Python packages:
+This project requires Python 3.10 or later. Clone the repository and install the required packages:
 
 ```bash
 git clone <YOUR-REPOSITORY-URL>
@@ -62,22 +62,9 @@ cd <YOUR-REPOSITORY-NAME>
 python3 -m venv .venv
 source .venv/bin/activate
 
-python -m pip install --upgrade pip
-python -m pip install \
-  numpy pandas scipy matplotlib seaborn \
-  scikit-learn statsmodels joblib tqdm jupyter
-```
-
-On Windows PowerShell, activate the environment with:
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-For a permanent public release, pin the tested package versions in `requirements.txt` and replace the package-install command above with:
-
-```bash
-python -m pip install -r requirements.txt
+python3 -m pip install --upgrade pip
+python3 -m pip install numpy pandas scipy matplotlib seaborn \
+    scikit-learn statsmodels joblib tqdm jupyter
 ```
 
 ---
