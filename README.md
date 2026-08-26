@@ -56,8 +56,8 @@ The randomization level is generally set to $\varepsilon = \log \binom{M}{k}.$
 This project requires Python 3.10 or later. Clone the repository and install the required packages:
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
-cd <YOUR-REPOSITORY-NAME>
+git clone https://github.com/snigdhagit/winners-with-confidence.git
+cd winners-with-confidence
 
 python3 -m venv .venv
 source .venv/bin/activate
