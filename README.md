@@ -1,10 +1,11 @@
 # Post-Selection Inference for Top-K Selection
 
-Reference implementation and reproducibility code for post-selection inference after selecting the top-`k` coordinates from a noisy multivariate estimate.
+Reference implementation and reproduction code for:
+> **Flexible Inference for Winners with Conditional Validity** (under revision JRSSB)
+> Soham Bakshi, Lingjun Gao, Zijun Gao, Snigdha Panigrahi
+> [arXiv:2607.18545](https://arxiv.org/abs/2607.18545)
 
 The repository compares five inference procedures across Gaussian, Binomial, Bradley–Terry–Davidson, and variable-importance experiments. It also contains a real-data application to the SPRINT trial, where age subgroups are ranked by estimated treatment benefit.
-
-This is research code for an ongoing project. The manuscript title, author list, paper link, and formal citation will be added when they are finalized.
 
 ---
 
