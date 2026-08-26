@@ -41,23 +41,12 @@ Each PDF contains three panels:
 3. average confidence-interval length.
 
 In all four simulation families, **signal strength** is defined as the
-standardized separation between the true `k`-th and (`k+1`)-th largest targets:
-
-$$
-\frac{\theta_{(k)}-\theta_{(k+1)}}
-{\operatorname{SE}\left(\widehat{\theta}_{(k)}-\widehat{\theta}_{(k+1)}\right)}.
-$$
-
-The data-generating parameters are calibrated so that this signal strength is
+standardized separation between the true `k`-th and (`k+1`)-th largest targets. The data-generating parameters are calibrated so that this signal strength is
 exactly **0.3 in the weak-signal setting** and **2.0 in the strong-signal
 setting**. These values are standardized gaps rather than raw differences
 between two means or probabilities.
 
-The randomization level is generally set to
-
-$$
-\varepsilon = \log \binom{M}{k}.
-$$
+The randomization level is generally set to $\varepsilon = \log \binom{M}{k}.$
 
 ---
 
