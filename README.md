@@ -256,6 +256,7 @@ The main notebook produces:
 
 | Output | Contents |
 |---|---|
+| `example1.pdf` | Gaussian selection quality, coverage, CI length, and conditional coverage |
 | `Gaussian_Example.pdf` | Gaussian selection quality, coverage, and CI length |
 | `Binomial_Example.pdf` | Binomial selection quality, coverage, and CI length |
 | `BTD_Example.pdf` | Bradley–Terry–Davidson selection quality, coverage, and CI length |
@@ -269,4 +270,4 @@ Unless an explicit path is supplied, the notebook writes the four simulation PDF
 
 ## Citation
 
-This repository accompanies an ongoing research project. Please replace this section with the final BibTeX entry when the manuscript title, authors, venue, and public link are available.
+
