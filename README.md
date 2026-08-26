@@ -29,7 +29,8 @@ The notebook contains four simulation families.
 
 | Experiment | Main target | Current dimensions/settings | Figure produced |
 |---|---|---|---|
-| Gaussian | Top-`k` coordinates of a Gaussian mean vector | `M=20`, `k=3`, heteroskedastic diagonal covariance | `Gaussian_Example.pdf` |
+| Gaussian (Conditional coverage) | Top-`k` coordinates of a Gaussian mean vector | `M=20`, `k=3`, fix heteroskedastic diagonal covariance | `example1.pdf` |
+| Gaussian | Top-`k` coordinates of a Gaussian mean vector | `M=20`, `k=3`, plug-in heteroskedastic diagonal covariance | `Gaussian_Example.pdf` |
 | Binomial / dosage | Top-`k` success probabilities | `M=10`, `k=3`, plug-in delta-method covariance | `Binomial_Example.pdf` |
 | Bradley–Terry–Davidson | Top-`k` latent item strengths | `M=10`, `k=3`, ties allowed | `BTD_Example.pdf` |
 | Variable importance | Top-`k` variable-importance targets | `p=10`, `k=3`, fixed-nuisance holdout construction | `VI_Example.pdf` |
