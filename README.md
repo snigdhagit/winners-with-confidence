@@ -43,13 +43,16 @@ Each PDF contains three panels:
 In all four simulation families, **signal strength** is defined as the
 standardized separation between the true `k`-th and (`k+1`)-th largest targets:
 
-$$
+```math
 \Delta_{\mathrm{std}}
 =
-\frac{\theta_{(k)}-\theta_{(k+1)}}
-{\operatorname{SE}\left(\widehat{\theta}_{(k)}
--\widehat{\theta}_{(k+1)}\right)}.
-$$
+\frac{
+  \theta_{(k)}-\theta_{(k+1)}
+}{
+  \operatorname{SE}\left(
+    \widehat{\theta}_{(k)}-\widehat{\theta}_{(k+1)}
+  \right)
+}.
 
 The data-generating parameters are calibrated so that this signal strength is
 exactly **0.3 in the weak-signal setting** and **2.0 in the strong-signal
@@ -61,7 +64,7 @@ The randomization level is generally set to
 $$
 \varepsilon = \log \binom{M}{k}.
 $$
-
+```
 ---
 
 ## Installation
