@@ -44,8 +44,6 @@ In all four simulation families, **signal strength** is defined as the
 standardized separation between the true `k`-th and (`k+1`)-th largest targets:
 
 $$
-\delta_{\mathbf{std}}
-=
 \frac{\theta_{(k)}-\theta_{(k+1)}}
 {\operatorname{SE}\left(\widehat{\theta}_{(k)}-\widehat{\theta}_{(k+1)}\right)}.
 $$
