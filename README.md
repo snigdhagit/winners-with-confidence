@@ -40,20 +40,27 @@ Each PDF contains three panels:
 2. marginal coverage rate;
 3. average confidence-interval length.
 
-The weak- and strong-separation settings are calibrated using the standardized boundary gap
+In all four simulation families, **signal strength** is defined as the
+standardized separation between the true `k`-th and (`k+1`)-th largest targets:
 
-\[
+$$
 \Delta_{\mathrm{std}}
 =
 \frac{\theta_{(k)}-\theta_{(k+1)}}
-{\operatorname{SE}(\widehat\theta_{(k)}-\widehat\theta_{(k+1)})}.
-\]
+{\operatorname{SE}\left(\widehat{\theta}_{(k)}
+-\widehat{\theta}_{(k+1)}\right)}.
+$$
 
-The current targets are `0.3` for weak separation and `2.0` for strong separation. The randomization level is generally set to
+The data-generating parameters are calibrated so that this signal strength is
+exactly **0.3 in the weak-signal setting** and **2.0 in the strong-signal
+setting**. These values are standardized gaps rather than raw differences
+between two means or probabilities.
 
-\[
-\varepsilon=\log {M \choose k}.
-\]
+The randomization level is generally set to
+
+$$
+\varepsilon = \log \binom{M}{k}.
+$$
 
 ---
 
