@@ -154,7 +154,7 @@ The notebook is organized as follows:
 
 Run Sections 1–8 once. Then run only the experiment block needed in Section 9, or continue to the SPRINT section after providing the required data files.
 
-The final simulation cells are computationally expensive. For an initial smoke test, reduce `B` to `5` or `10`. The current full settings use `B=500` for Gaussian, Binomial, and variable importance and `B=200` for Bradley–Terry–Davidson. The variable-importance experiment is especially expensive because its final holdout size and bootstrap count are `500_000` and `500`.
+The current full settings use `B=500` for Gaussian, Binomial, and variable importance and `B=200` for Bradley–Terry–Davidson. The variable-importance experiment is especially expensive because its final holdout size and bootstrap count are `500_000` and `500`.
 
 ---
 
