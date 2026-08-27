@@ -180,24 +180,6 @@ Although some notebook labels say "3-year outcome," 1,000 days is not exactly th
 
 ---
 
-## Reproducibility settings
-
-The main simulation blocks currently use:
-
-```python
-ALPHA = 0.05
-SEED = 123
-K = 3
-share_same_data_across_methods = True
-sigma = "unknown"
-zoom_sigma_mode = "mean"
-```
-
-Randomized PSI and Data Splitting depend on random seeds. Report both the main fixed-seed results and the stability analysis across repeated seeds. The deterministic full-data methods use the same selected top-`k` set when their selection rule is identical, although their confidence intervals differ.
-
-
----
-
 ## Reproducing the paper
 
 ### Paper and notebook
