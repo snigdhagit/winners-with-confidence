@@ -240,11 +240,7 @@ Each of `Gaussian_Example.pdf`, `Binomial_Example.pdf`, `BTD_Example.pdf`, and `
 
 ### Signal-strength calibration
 
-In all four simulation families, **signal strength** is defined as the standardized separation between the true $k$-th and $(k+1)$-th largest targets:
-
-$\Delta_{\mathrm{std}}=\dfrac{\theta_{(k)}-\theta_{(k+1)}}{\operatorname{SE}\!\left(\widehat{\theta}_{(k)}-\widehat{\theta}_{(k+1)}\right)}.$
-
-The data-generating parameters are calibrated so that:
+In all four simulation families, **signal strength** is defined as the standardized separation between the true $k$-th and $(k+1)$-th largest targets. The data-generating parameters are calibrated so that:
 
 - **Weak separation:** $\Delta_{\mathrm{std}}=0.3$;
 - **Strong separation:** $\Delta_{\mathrm{std}}=2.0$.
