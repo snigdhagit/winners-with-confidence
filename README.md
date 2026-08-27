@@ -23,33 +23,6 @@ Within each Monte Carlo replication, the methods can be run on the same generate
 
 ---
 
-## Main experiments
-
-The notebook contains four simulation families.
-
-| Experiment | Main target | Current dimensions/settings | Figure produced |
-|---|---|---|---|
-| Gaussian (Conditional coverage) | Top-`k` coordinates of a Gaussian mean vector | `M=20`, `k=3`, fix heteroskedastic diagonal covariance | `example1.pdf` |
-| Gaussian | Top-`k` coordinates of a Gaussian mean vector | `M=20`, `k=3`, plug-in heteroskedastic diagonal covariance | `Gaussian_Example.pdf` |
-| Binomial / dosage | Top-`k` success probabilities | `M=10`, `k=3`, plug-in delta-method covariance | `Binomial_Example.pdf` |
-| Bradley–Terry–Davidson | Top-`k` latent item strengths | `M=10`, `k=3`, ties allowed | `BTD_Example.pdf` |
-| Variable importance | Top-`k` variable-importance targets | `p=10`, `k=3`, fixed-nuisance holdout construction | `VI_Example.pdf` |
-
-Each PDF contains three panels:
-
-1. selection quality;
-2. marginal coverage rate;
-3. average confidence-interval length.
-
-In all four simulation families, **signal strength** is defined as the
-standardized separation between the true `k`-th and (`k+1`)-th largest targets. The data-generating parameters are calibrated so that this signal strength is
-exactly **0.3 in the weak-signal setting** and **2.0 in the strong-signal
-setting**. These values are standardized gaps rather than raw differences
-between two means or probabilities.
-
-The randomization level is generally set to $\varepsilon = \log \binom{M}{k}.$
-
----
 
 ## Installation
 
@@ -222,25 +195,95 @@ zoom_sigma_mode = "mean"
 
 Randomized PSI and Data Splitting depend on random seeds. Report both the main fixed-seed results and the stability analysis across repeated seeds. The deterministic full-data methods use the same selected top-`k` set when their selection rule is identical, although their confidence intervals differ.
 
----
-
-## Outputs
-
-The main notebook produces:
-
-| Output | Contents |
-|---|---|
-| `example1.pdf` | Gaussian selection quality, coverage, CI length, and conditional coverage |
-| `Gaussian_Example.pdf` | Gaussian selection quality, coverage, and CI length |
-| `Binomial_Example.pdf` | Binomial selection quality, coverage, and CI length |
-| `BTD_Example.pdf` | Bradley–Terry–Davidson selection quality, coverage, and CI length |
-| `VI_Example.pdf` | Variable-importance selection quality, coverage, and CI length |
-| SPRINT result table | Selected top-2 subgroups and 90% confidence intervals |
-| SPRINT stability bar plot | Counts of selection plus significance across random seeds |
-
-Unless an explicit path is supplied, the notebook writes the four simulation PDFs to the current working directory. The refactored scripts should instead save publication figures under `plot/figures/` and real-data outputs under `result/`.
 
 ---
+
+## Reproducing the paper
+
+### Paper and notebook
+
+- **Paper:** [Flexible Inference for Winners with Conditional Validity](https://arxiv.org/abs/2607.18545)
+- **Reproduction notebook:** [`Top-K_Post_Selection_Inference.ipynb`](Top-K_Post_Selection_Inference.ipynb)
+
+Start Jupyter from the repository root:
+
+```bash
+jupyter notebook Top-K_Post_Selection_Inference.ipynb
+```
+
+Run the notebook cells sequentially from top to bottom. The notebook contains four simulation families, one additional Gaussian conditional-coverage experiment, and the SPRINT real-data application.
+
+### Experiments and outputs
+
+| Notebook section | Experiment | Main target and setting | Output | Paper location |
+|---|---|---|---|---|
+| Section 9.1, Gaussian baseline block | Gaussian conditional coverage | Top-`k` coordinates of a Gaussian mean vector; `M=20`, `k=3`, `n=50`; known heteroskedastic diagonal covariance | `example1.pdf` | Main paper, Figure 1; Supporting Materials, Section C(a) |
+| Section 9.1, weak/strong separation block | Gaussian simulation | Top-`k` coordinates of a Gaussian mean vector; `M=20`, `k=3`, `n=50`; known heteroskedastic diagonal covariance | `Gaussian_Example.pdf` | Main paper, Section 7, Figure 2; Supporting Materials, Section C(a) |
+| Section 9.2 | Binomial dosage | Top-`k` success probabilities; `M=10`, `k=3`, `n=100`; plug-in delta-method covariance | `Binomial_Example.pdf` | Main paper, Section 7, Figure 3; Supporting Materials, Section C(b) |
+| Section 9.3 | Bradley-Terry-Davidson | Top-`k` latent item strengths; `M=10`, `k=3`; 10 comparisons per pair and tie parameter `nu=0.2` | `BTD_Example.pdf` | Main paper, Section 7, Figure 4; Supporting Materials, Section C(c) |
+| Section 9.4 | Variable importance | Top-`k` variable-importance targets; `p=10`, `k=3`, `n=500`; fixed-nuisance holdout construction | `VI_Example.pdf` | Main paper, Section 7, Figure 5; Supporting Materials, Section C(d) |
+| Real Data Application → SPRINT | SPRINT single-run analysis | Top two of four age subgroups; day-1,000 outcome; `n=7,480`; 90% confidence intervals | Result table displayed in the notebook | Main paper, Section 8, Table 1; Supporting Materials, Section D |
+| Real Data Application → SPRINT | SPRINT stability analysis | Randomized PSI and Data Splitting repeated over 100 random seeds | Stability summary and bar plot displayed in the notebook | Main paper, Section 8, Table 2 |
+
+`example1.pdf` contains four panels:
+
+1. selection quality;
+2. marginal coverage;
+3. average confidence-interval length;
+4. conditional coverage.
+
+Each of `Gaussian_Example.pdf`, `Binomial_Example.pdf`, `BTD_Example.pdf`, and `VI_Example.pdf` contains three panels:
+
+1. selection quality;
+2. marginal coverage;
+3. average confidence-interval length.
+
+### Signal-strength calibration
+
+In all four simulation families, **signal strength** is defined as the standardized separation between the true $k$-th and $(k+1)$-th largest targets:
+
+$\Delta_{\mathrm{std}}=\dfrac{\theta_{(k)}-\theta_{(k+1)}}{\operatorname{SE}\!\left(\widehat{\theta}_{(k)}-\widehat{\theta}_{(k+1)}\right)}.$
+
+The data-generating parameters are calibrated so that:
+
+- **Weak separation:** $\Delta_{\mathrm{std}}=0.3$;
+- **Strong separation:** $\Delta_{\mathrm{std}}=2.0$.
+
+These values are standardized boundary gaps rather than raw differences between means, probabilities, latent strengths, or variable-importance parameters.
+
+The notebook uses the inverse-temperature parameter
+
+$\varepsilon=\log\binom{M}{k},$
+
+which corresponds to the paper's adaptive temperature after standardizing by the dispersion of the subset scores.
+
+### Output locations
+
+The current notebook saves the five simulation PDFs to the directory from which Jupyter was started:
+
+```text
+example1.pdf
+Gaussian_Example.pdf
+Binomial_Example.pdf
+BTD_Example.pdf
+VI_Example.pdf
+```
+
+The refactored scripts save simulation figures under:
+
+```text
+plot/figures/
+```
+
+and real-data tables and figures under:
+
+```text
+result/
+```
+
+The SPRINT analysis requires `baseline.csv` and `outcomes.csv`. These files should be placed in the notebook's working directory before running the SPRINT section. The deidentified data are available upon request from the [NHLBI BioLINCC SPRINT repository](https://biolincc.nhlbi.nih.gov/studies/sprint/).
+
+
 
 ## Citation
 
